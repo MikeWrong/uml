@@ -1,0 +1,16 @@
+@startuml
+title:单例模式
+
+class client{
+}
+
+class Singleton{
+-singleton:Singleton
++getInstance():Singleton
+}
+
+Singleton<-right-client:关联
+
+Singleton *-up- "1" Singleton:组合
+
+@enduml
