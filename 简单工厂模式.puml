@@ -1,0 +1,29 @@
+@startuml
+title 简单工厂模式
+
+interface Computer{
++printComputer();
+}
+note top:抽象产品类：如下图的 Computer，\n它描述了所有实例的公共接口。
+
+class SurfaceBookComputer{
++printComputer();
+}
+note top:具体产品类：如下图的 SurfaceBookComputer，\n实现抽象产品的接口，是工厂角色中要创建的具体实例。
+
+class MacBookComputer{
++printComputer();
+}
+
+class ComputerFactory{
++createComputer(String type);
+}
+note bottom:工厂角色: 如上图的 ComputerFactory，\n它可以被客户端调用，其内部用于负责创建具体的对象。
+
+Computer<|..SurfaceBookComputer:实现
+Computer<|..MacBookComputer:实现
+Computer<..ComputerFactory:依赖
+
+/'缺点：简单工厂模式是违反“开闭原则”，即对扩展开放，
+对修改关闭；因为如果要新增具体产品，就需要修改工厂类的代码。'/
+@enduml

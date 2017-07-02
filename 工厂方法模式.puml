@@ -1,0 +1,44 @@
+@startuml
+title 工厂方法模式
+
+interface Computer{
++printComputer();
+}
+
+class SurfaceBookComputer{
++printComputer();
+}
+
+class MacBookComputer{
++printComputer();
+}
+
+Computer<|..SurfaceBookComputer:实现
+Computer<|..MacBookComputer:实现
+
+interface ComputerFactory{
++createComputer();
+}
+
+class MsFactory{
++createComputer();
+}
+
+class AppleFactory{
++createComputer();
+}
+
+ComputerFactory<|..MsFactory:实现
+ComputerFactory<|..AppleFactory:实现
+
+SurfaceBookComputer<..MsFactory:依赖
+MacBookComputer<..AppleFactory:依赖
+
+/'对于工厂方法模式而言，是通过扩展来新增具体类的，符合开闭原则，
+但是在客户端就必须要感知到具体的工厂类，也就是将判断逻辑由简单
+工厂的工厂类挪到客户端。工厂模式横向扩展很方便，假如该工厂又有
+新的产品 Macbook Air 要生产，那么只需要创建相应的工厂类和产
+品类去实现抽象工厂接口和抽象产品接口即可，而不用去修改原有已经
+存在的代码。'/
+
+@enduml
