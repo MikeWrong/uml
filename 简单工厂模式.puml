@@ -20,9 +20,9 @@ class ComputerFactory{
 }
 note bottom:工厂角色: 如上图的 ComputerFactory，\n它可以被客户端调用，其内部用于负责创建具体的对象。
 
-Computer<|..SurfaceBookComputer:实现
-Computer<|..MacBookComputer:实现
-Computer<..ComputerFactory:依赖
+Computer<|...SurfaceBookComputer:实现
+Computer<|...MacBookComputer:实现
+Computer<...ComputerFactory:依赖
 
 /'缺点：简单工厂模式是违反“开闭原则”，即对扩展开放，
 对修改关闭；因为如果要新增具体产品，就需要修改工厂类的代码。'/
