@@ -2,48 +2,48 @@
 title:抽象工厂模式
 
 interface Computer{
-+printComputer();
++printComputer():void
 }
 
 class SurfaceBookComputer{
-+printComputer();
++printComputer():void
 }
 
 class MacBookComputer{
-+printComputer();
++printComputer():void
 }
 
 Computer<|..SurfaceBookComputer:实现
 Computer<|..MacBookComputer:实现
 
 interface ProductionFactory{
-+createComputer();
-+createSystem();
++createComputer(String type):Computer
++createSystem(String type):OperatingSystem
 }
 
 class MsFactory{
-+createComputer();
-+createSystem();
++createComputer(String type):Computer
++createSystem(String type):OperatingSystem
 }
 
 class AppleFactory{
-+createComputer();
-+createSystem();
++createComputer(String type):Computer
++createSystem(String type):OperatingSystem
 }
 
 ProductionFactory<|..MsFactory:实现
 ProductionFactory<|..AppleFactory:实现
 
 interface OperatingSystem{
-+printSystem();
++printSystem():void
 }
 
 class Windows8System{
-+printSystem();
++printSystem():void
 }
 
 class MacOsSystem{
-+printSystem();
++printSystem():void
 }
 
 OperatingSystem<|..MacOsSystem:实现
