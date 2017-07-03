@@ -19,7 +19,7 @@ interface Command{
 class ConcreteCommand{
 +execute():void
 }
-note right:reveiver->action();
+note right:receiver->action();
 
 Command<|..ConcreteCommand:实现
 
