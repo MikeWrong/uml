@@ -1,0 +1,29 @@
+@startuml
+title:策略模式
+
+/'环境类(Context)：一个 ConcreteStrategy 对象来配置。维护一个对 Strategy 对象的引用。可定义一个接口来让 Strategy 访问它的数据。'/
+class Context{
++algorithm():void
++setStrategy(Strategy):void
+}
+note bottom:strategy->algorithm();
+
+/'抽象策略类(Strategy)：定义所有支持的算法的公共接口。 Context 使用这个接口来调用某 ConcreteStrategy 定义的算法。'/
+interface Strategy{
++algorithm():void
+}
+
+/'具体策略类(ConcreteStrategy)：以 Strategy 接口实现某具体算法。'/
+class ConcreteStrategyA{
++algorithm():void
+}
+
+class ConcreteStrategyB{
++algorithm():void
+}
+
+Strategy<|..ConcreteStrategyA:实现
+Strategy<|..ConcreteStrategyB:实现
+
+Context*.ri.Strategy:组合
+@enduml
