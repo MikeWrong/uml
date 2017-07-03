@@ -34,7 +34,7 @@ class Receiver{
 client..>Receiver:依赖
 client..right..>Invoker:依赖
 
-ConcreteCommand-left->Receiver:依赖
+ConcreteCommand-left->Receiver:关联
 
 
 @enduml
