@@ -1,0 +1,40 @@
+@startuml
+title:命令模式
+/'定义：将一个请求封装成一个对象，从而让你使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能。'/
+
+/'客户类'/
+class client
+
+/'调用者'/
+class Invoker{
++call():void
+}
+
+/'抽象命令类'/
+interface Command{
++execute():void
+}
+
+/'具体命令类'/
+class ConcreteCommand{
++execute():void
+}
+note right:reveiver->action();
+
+Command<|..ConcreteCommand:实现
+
+Invoker*-right->Command:组合
+
+/'接收者'/
+class Receiver{
++action():void
+}
+
+
+client..>Receiver:依赖
+client..right..>Invoker:依赖
+
+ConcreteCommand-left->Receiver:依赖
+
+
+@enduml
