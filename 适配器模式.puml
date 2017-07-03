@@ -18,7 +18,7 @@ class Adapter{
 note bottom:通过内部包装一个Adaptee对象，把原接口转换为目标接口
 
 /'需要适配的类（Adaptee）：需要适配的类或适配者类。'/
-class Adaptee{
+abstract class Adaptee{
 SpecificRequest():void
 }
 note bottom:需要适配的类

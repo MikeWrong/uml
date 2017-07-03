@@ -2,7 +2,7 @@
 title:观察者模式
 
 /'被观察者(Subject)：知道它的通知对象，事件发生后会通知所有它知道的对象，提供添加删除观察者的接口。'/
-class Subject{
+abstract class Subject{
 -oblist:List<Observer>
 +attach():void
 +detach():void

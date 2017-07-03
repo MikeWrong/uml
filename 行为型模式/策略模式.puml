@@ -9,7 +9,7 @@ class Context{
 note bottom:strategy->algorithm();
 
 /'抽象策略类(Strategy)：定义所有支持的算法的公共接口。 Context 使用这个接口来调用某 ConcreteStrategy 定义的算法。'/
-interface Strategy{
+abstract class Strategy{
 +algorithm():void
 }
 
@@ -22,8 +22,11 @@ class ConcreteStrategyB{
 +algorithm():void
 }
 
-Strategy<|..ConcreteStrategyA:实现
-Strategy<|..ConcreteStrategyB:实现
+Strategy<|--ConcreteStrategyA:泛化
+Strategy<|--ConcreteStrategyB:泛化
 
-Context*.ri.Strategy:组合
+Context*-ri->Strategy:组合
+
+note "策略模式和状态模式区别:策略模式一般用于单个算法，而状态模式的每个状态子类中\n需要包含所有原来的语境类（Context）中的所有方法的具体实现。" as 区别
+
 @enduml
