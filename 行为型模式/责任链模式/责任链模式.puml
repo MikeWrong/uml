@@ -1,0 +1,28 @@
+@startuml
+
+class client
+
+abstract class Handler{
+-successor:Handler
++handleRequest():void
+}
+
+class ConcreteHandlerA{
++handleRequest():void
+}
+
+class ConcreteHandlerB{
++handleRequest():void
+}
+
+
+Handler <|-- ConcreteHandlerB:泛化
+Handler <|-- ConcreteHandlerA:泛化
+
+client .right.> Handler:依赖
+
+Handler *-up- "1" Handler:组合
+
+
+
+@enduml
