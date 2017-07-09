@@ -1,0 +1,30 @@
+@startuml
+
+class Client
+
+abstract class Component{
++Operation():void
++addChild(Component child):void
++removeChild(Component child):void
+}
+
+class Leaf{
++Operation():void
+}
+
+class Composite{
+-childComponents:List<Component>
++Operation():void
++addChild(Component child):void
++removeChild(Component child):void
+}
+
+Component<|-down- Leaf:泛化
+Component<|-down- Composite:泛化
+
+Component <--o Composite:聚合
+
+Client .right.>Component:依赖
+
+
+@enduml
