@@ -1,0 +1,36 @@
+@startuml
+
+/'抽象组件角色(Component): 定义可以动态添加任务的对象的接口'/
+abstract class Component{
++operation():void
+}
+
+/'具体组件角色(ConcreteComponent)：定义一个要被装饰器装饰的对象，即 Component 的具体实现'/
+class ConcreteComponent{
++operation():void
+}
+Component <|-- ConcreteComponent:泛化
+
+/'抽象装饰器(Decorator): 维护对组件对象和其子类组件的引用'/
+abstract class Decorator{
+-component:Component
++operation():void
+}
+Component <|-- Decorator:泛化
+Component <--*Decorator:关联
+
+/'具体装饰器角色(ConcreteDecorator)：向组件添加新的职责'/
+class ConcreteDecoratorA{
+-component:Component
++operation():void
+}
+
+class ConcreteDecoratorB{
+-component:Component
++operation():void
+}
+Decorator <|-- ConcreteDecoratorA:泛化
+Decorator <|-- ConcreteDecoratorB:泛化
+
+
+@enduml
