@@ -1,0 +1,25 @@
+@startuml
+
+
+interface Facade{
++wrapOperation():void
+}
+
+class SystemA{
++Operation():void
+}
+class SystemB{
++Operation():void
+}
+class SystemC{
++Operation():void
+}
+
+SystemA <-down- Facade:关联
+SystemB <-down- Facade:关联
+SystemC <-down- Facade:关联
+
+class Client{
+}
+Client .right.|> Facade:依赖
+@enduml
